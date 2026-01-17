@@ -1,0 +1,15 @@
+{
+  "blogTitle": "My New Blog",
+  "yourAvatar": "avatar.png",
+  "yourName": "Your Name",
+  "yourBio": "Your Bio. Who are you? ;)",
+  "yourEmail": "foo@bar.baz",
+  "facebook": "http://facebook.com",
+  "twitter": "http://twitter.com",
+  "instagram": "http://instagram.com",
+  "linkedin": "http://linkedin.com",
+  "youtube": "http://youtube.com",
+  "enableMailMeAt": true,
+  "maxPosts": 5,
+  "showPoweredBy": true
+}

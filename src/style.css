@@ -1,0 +1,36 @@
+@import "tailwindcss";
+@plugin "daisyui";
+@plugin "@tailwindcss/typography";
+
+@theme {
+    --font-sans: "Inter", "system-ui", "-apple-system", "sans-serif";
+    --font-header: "Outfit", "Inter", "sans-serif";
+}
+
+:root {
+    font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, .font-header {
+    font-family: var(--font-header);
+}
+
+/* Subtle scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: hsl(var(--bc) / 0.1);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--bc) / 0.2);
+}
+
+/* Smooth transitions */
+.transition-all {
+    transition-duration: 200ms;
+}
