@@ -5,7 +5,6 @@
                 <router-link to="/" class="group flex items-center gap-3">
                     <div
                         class="relative w-10 h-10 rounded-xl bg-base-200 flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform overflow-hidden p-1.5 border border-base-content/5">
-                        <!-- Inner Neon Glow (Emitted by icon) -->
                         <div
                             class="absolute inset-0 bg-gradient-to-tr from-primary to-info blur-md opacity-20 group-hover:opacity-60 transition-opacity">
                         </div>

@@ -62,7 +62,3 @@
         </div>
     </div>
 </template>
-
-<script setup lang="ts">
-// Professional workflow guide for the "dumb" blog system
-</script>

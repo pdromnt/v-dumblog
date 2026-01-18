@@ -208,7 +208,6 @@ const savePost = async (isDraft: boolean) => {
 </script>
 
 <style>
-/* Refined EasyMDE theme for professional look */
 .editor-toolbar {
   background: hsl(var(--b2) / 0.5) !important;
   border: none !important;
@@ -239,6 +238,12 @@ const savePost = async (isDraft: boolean) => {
   font-family: var(--font-sans) !important;
   font-size: 1.125rem !important;
   padding: 30px !important;
+}
+
+.CodeMirror-cursor {
+  border-left: 1px solid white !important;
+  border-right: none !important;
+  width: 0 !important;
 }
 
 .editor-statusbar {
@@ -297,6 +302,16 @@ const savePost = async (isDraft: boolean) => {
   color: var(--color-primary) !important;
   text-decoration: underline !important;
   font-weight: 600 !important;
+}
+
+.editor-preview ol {
+  list-style: decimal;
+  margin-bottom: 1rem;
+}
+
+.editor-preview ul {
+  list-style: disc;
+  margin-bottom: 1rem;
 }
 
 .editor-preview code {

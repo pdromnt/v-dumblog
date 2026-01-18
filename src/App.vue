@@ -31,7 +31,3 @@ onMounted(async () => {
   }
 });
 </script>
-
-<style>
-@import "./style.css";
-</style>
