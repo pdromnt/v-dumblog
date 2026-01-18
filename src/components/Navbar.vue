@@ -27,7 +27,7 @@
                         <router-link to="/archives" class="rounded-lg font-medium"
                             active-class="bg-primary/10 text-primary">Archives</router-link>
                     </li>
-                    <li>
+                    <li v-if="isDev">
                         <router-link to="/editor" class="rounded-lg font-medium"
                             active-class="bg-primary/10 text-primary">Editor</router-link>
                     </li>
@@ -56,7 +56,7 @@
                         class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-2xl bg-base-200 rounded-box w-52 border border-base-content/5">
                         <li><router-link to="/home">Home</router-link></li>
                         <li><router-link to="/archives">Archives</router-link></li>
-                        <li><router-link to="/editor">Editor</router-link></li>
+                        <li v-if="isDev"><router-link to="/editor">Editor</router-link></li>
                     </ul>
                 </div>
             </div>
@@ -66,6 +66,8 @@
 
 <script setup lang="ts">
 import type { ISettings } from '../interfaces/blog';
+
+const isDev = import.meta.env.DEV;
 
 defineProps<{
     settings: ISettings | null
