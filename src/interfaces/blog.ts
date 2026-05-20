@@ -27,4 +27,5 @@ export interface ISettings {
   enableMailMeAt: boolean;
   maxPosts: number;
   showPoweredBy: boolean;
+  theme: string;
 }

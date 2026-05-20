@@ -2,6 +2,10 @@
 @plugin "daisyui";
 @plugin "@tailwindcss/typography";
 
+/* ── Theme imports ────────────────────────────────────────── */
+@import "./themes/magi.css";
+
+/* ── Default theme (non-magi, clean modern) ───────────────── */
 @theme {
     --font-sans: "Inter", "system-ui", "-apple-system", "sans-serif";
     --font-header: "Outfit", "Inter", "sans-serif";

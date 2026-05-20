@@ -11,5 +11,6 @@
   "youtube": "http://youtube.com",
   "enableMailMeAt": true,
   "maxPosts": 5,
-  "showPoweredBy": true
+  "showPoweredBy": true,
+  "theme": "magi"
 }
