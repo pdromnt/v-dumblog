@@ -1,65 +1,95 @@
 # V-Dumblog
 
-Developed with Vue3 + Tailwind + DaisyUI.
+> A dead-simple, self-hosted blogging platform. No databases, no build pipelines, no nonsense.
 
-A simple and dumb blogging platform with an editor in-browser (you need to commit/upload your files after editing them). Made to be an simpler alternative to Jekyll.
+[![Vue 3](https://img.shields.io/badge/Vue-3-42b883?logo=vue.js)](https://vuejs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8?logo=tailwindcss)](https://tailwindcss.com/)
+[![DaisyUI](https://img.shields.io/badge/DaisyUI-5-5a3ab8?logo=daisyui)](https://daisyui.com/)
+[![Vite](https://img.shields.io/badge/Vite-8-646cff?logo=vite)](https://vite.dev/)
+[![License](https://img.shields.io/badge/License-UNLICENSE-blue)](#license)
 
-## Customizations
+---
 
-On the settings.json file you'll find options to customize your blog title, avatar, bio, social networks (leave the fields empty, don't delete them if you don't want them showing up!), and ability to select how many posts will be shown on the home page.
+V-Dumblog is a lightweight blog that runs entirely in the browser. Write posts with the built-in markdown editor, customize everything through a single JSON file, and deploy by pushing to GitHub Pages. No server, no database, no CI/CD wizardry required.
 
-## Themes
+It was born out of the opinion that Jekyll is too convoluted for a simple blog. The code isn't an example of awesomeness, but it does the job and pretty well at that.
 
-Dumblog is fully themeable. The default theme is **Magi** — a CRT terminal aesthetic inspired by the MAGI supercomputer system. You can also switch to any built-in DaisyUI theme or create your own custom themes.
+## Features
 
-### Switching themes
+- **In-browser editor** -- write and preview markdown posts without leaving the app
+- **Zero config deployment** -- push to GitHub Pages and you're live
+- **Themeable** -- ships with the Magi CRT terminal theme, plus full DaisyUI theme support
+- **Responsive** -- works on desktop and mobile
+- **Fast** -- Vite 8 with Rolldown, no SSR overhead, static JSON assets
 
-Set the `theme` field in `public/assets/settings.json`:
+## Quick start
+
+```bash
+npm install
+npm run dev
+```
+
+Opens at `http://localhost:5173/`.
+
+## Build
+
+```bash
+npm run build
+```
+
+Output goes to `dist/`. The build step automatically updates `index.html` with your blog title from `settings.json`.
+
+## Configuration
+
+All customization lives in `public/assets/settings.json`:
 
 ```json
 {
-  "blogTitle": "My Blog",
+  "blogTitle": "My New Blog",
+  "yourAvatar": "avatar.png",
+  "yourName": "Your Name",
+  "yourBio": "Your Bio. Who are you? ;)",
+  "yourEmail": "foo@bar.baz",
+  "facebook": "",
+  "twitter": "",
+  "instagram": "",
+  "linkedin": "",
+  "youtube": "",
+  "enableMailMeAt": true,
+  "maxPosts": 5,
+  "showPoweredBy": true,
   "theme": "magi"
 }
 ```
 
-No rebuild needed for DaisyUI built-in themes — just change the value and reload.
+Leave social fields as empty strings to hide them. Set `maxPosts` to control how many posts appear on the home page.
 
-### Built-in themes
+## Creating posts
 
-#### Custom themes
+Navigate to `/#/editor` in your browser. Write your post, hit save, and it generates a JSON file. Commit that file to `public/assets/posts/` and push -- done.
 
-| Theme | Description |
-|-------|-------------|
-| `magi` | **(Default)** CRT terminal look — dark green-on-black, monospace font, scanlines, vignette, screen flicker. Based on the MAGI Supercomputer System dashboard. |
+## Themes
 
-#### DaisyUI built-in themes
+V-Dumblog is fully themeable. The default theme is **Magi** -- a CRT terminal aesthetic inspired by the MAGI supercomputer system.
 
-Any [DaisyUI theme](https://daisyui.com/docs/themes/) works out of the box. Some highlights:
+### Switching themes
 
-| Theme | Description |
-|-------|-------------|
-| `dark` | Clean dark theme |
-| `light` | Clean light theme |
-| `cupcake` | Soft pastel light theme |
-| `cyberpunk` | Neon yellow/pink on dark |
-| `valentine` | Pink/rose light theme |
-| `forest` | Deep green dark theme |
-| `aqua` | Blue-toned theme |
-| `dracula` | Purple/green dark theme |
-| `night` | Deep blue dark theme |
-| `nord` | Arctic blue-grey theme |
-| `sunset` | Warm orange/red theme |
+Set the `theme` field in `settings.json` and reload:
 
-Full list: https://daisyui.com/docs/themes/
+```json
+{
+  "theme": "magi"
+}
+```
 
-### Creating a custom theme
+No rebuild needed for DaisyUI built-in themes.
 
-1. Create a new CSS file in `src/themes/` (e.g. `src/themes/mytheme.css`):
+### Custom themes
+
+1. Create a CSS file in `src/themes/` (e.g. `src/themes/mytheme.css`):
 
 ```css
 [data-theme="mytheme"] {
-  /* DaisyUI color overrides */
   --color-base-100: #your-darkest-bg;
   --color-base-200: #your-panel-bg;
   --color-base-300: #your-hover-bg;
@@ -77,11 +107,9 @@ Full list: https://daisyui.com/docs/themes/
   --color-warning: #your-warning;
   --color-error: #your-error;
 
-  /* Fonts */
   --font-sans: "Your Font", sans-serif;
   --font-header: "Your Header Font", sans-serif;
 
-  /* Border radius */
   --radius-box: 0.5rem;
   --radius-field: 0.5rem;
   --radius-selector: 0.25rem;
@@ -94,35 +122,34 @@ Full list: https://daisyui.com/docs/themes/
 @import "./themes/mytheme.css";
 ```
 
-3. Set it in `settings.json`:
+3. Set `"theme": "mytheme"` in `settings.json`.
 
-```json
-{
-  "theme": "mytheme"
-}
-```
+You can add any additional CSS inside the `[data-theme]` block -- component overrides, effects, scrollbar styling, etc. See `src/themes/magi.css` for a full example.
 
-You can add any additional CSS inside the `[data-theme="mytheme"]` block — component overrides, effects, scrollbar styling, etc. See `src/themes/magi.css` for a full example.
+### Built-in themes
 
-## Creating and editing posts
+| Theme | Description |
+|-------|-------------|
+| `magi` | **(Default)** CRT terminal look -- dark green-on-black, monospace font, scanlines, vignette, screen flicker. |
 
-You can go to (e.g.) `YOUR_USERNAME.github.io/#/editor` to see the online editor. From there you can create and edit posts. To have those posts reflect on Github, you need to place and commit the files it generates in the `public/assets/posts` folder of your install.
+Any [DaisyUI theme](https://daisyui.com/docs/themes/) works out of the box. Some highlights:
 
-## Running locally
+| Theme | Description |
+|-------|-------------|
+| `dark` | Clean dark theme |
+| `light` | Clean light theme |
+| `cyberpunk` | Neon yellow/pink on dark |
+| `forest` | Deep green dark theme |
+| `dracula` | Purple/green dark theme |
+| `night` | Deep blue dark theme |
+| `nord` | Arctic blue-grey theme |
+| `sunset` | Warm orange/red theme |
 
-First run `npm install` then run `npm run dev` and it should open automatically on `http://localhost:5173/`.
-
-## Build
-
-Run `npm run build` to build it. It'll automatically update the index.html title based on the title in the settings.json file.
+Full list: https://daisyui.com/docs/themes/
 
 ## Contributing
 
 Fork it, please.
-
-## Why?
-
-Because I always thought Jekyll to be too convoluted and I wanted something dumb and simple. The code isn't an example of awesomeness but it does the job and pretty well at that.
 
 ## License
 
