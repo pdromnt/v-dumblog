@@ -3,7 +3,7 @@
     <Navbar :settings="settings" />
 
     <!-- Main Content -->
-    <main class="flex-grow container mx-auto max-w-5xl px-4 py-12 md:py-20">
+    <main class="flex-grow container mx-auto max-w-5xl px-4 py-8 md:py-12">
       <router-view :settings="settings" />
     </main>
 

@@ -1,16 +1,10 @@
 <template>
-  <div class="max-w-3xl mx-auto space-y-24">
+  <div class="max-w-5xl mx-auto space-y-16">
     <PostCard v-for="post in posts" :key="post.filename" :post="post" />
 
     <!-- Archives Call to Action -->
     <div v-if="posts.length > 0"
-      class="pt-20 border-t border-base-content/5 flex flex-col items-center text-center space-y-6">
-      <div class="w-12 h-12 rounded-full bg-base-200 flex items-center justify-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 opacity-30" fill="none" viewBox="0 0 24 24"
-          stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 12h14M5 16h14" />
-        </svg>
-      </div>
+      class="pt-12 border-t border-base-content/5 flex flex-col items-center text-center space-y-4">
       <div>
         <h3 class="text-2xl font-header font-bold mb-2">Want to read more?</h3>
         <p class="text-base-content/50 max-w-xs mx-auto">Browse through our archives.</p>

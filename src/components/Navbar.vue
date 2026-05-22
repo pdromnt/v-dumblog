@@ -9,7 +9,7 @@
                             class="absolute inset-0 bg-gradient-to-tr from-primary to-info blur-md opacity-20 group-hover:opacity-60 transition-opacity">
                         </div>
 
-                        <img src="/favicon.ico" alt="Logo" class="relative w-full h-full object-contain z-10" />
+                        <img src="/favicon.png" alt="Logo" class="relative w-full h-full object-contain z-10" />
                     </div>
                     <span class="text-xl font-header font-extrabold tracking-tight hidden md:block">
                         {{ settings?.blogTitle || 'V-Dumblog' }}

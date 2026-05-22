@@ -1,10 +1,10 @@
 <template>
-  <div class="max-w-3xl mx-auto">
+  <div class="max-w-5xl mx-auto">
     <!-- Post Container -->
     <article v-if="post" class="animate-fade-in">
       <!-- Header -->
-      <header class="mb-12 md:mb-20 text-center">
-        <div class="flex items-center justify-center gap-4 mb-6">
+      <header class="mb-8 md:mb-12 text-center">
+        <div class="flex items-center justify-center gap-3 mb-4">
           <time v-if="post.timestamp" class="text-xs font-bold uppercase tracking-[0.2em] text-primary">
             {{ helperService.parseTimestamp(post.timestamp) }}
           </time>
@@ -13,7 +13,7 @@
           </span>
         </div>
 
-        <h1 class="text-4xl md:text-6xl font-header font-extrabold tracking-tight leading-tight mb-8">
+        <h1 class="text-2xl md:text-4xl font-header font-extrabold tracking-tight leading-tight mb-4">
           {{ post.postTitle }}
         </h1>
 
@@ -21,7 +21,7 @@
       </header>
 
       <!-- Content -->
-      <div class="prose prose-lg md:prose-xl max-w-none text-base-content/90 mb-20 
+      <div class="prose max-w-none text-base-content/90 mb-12 
                   prose-headings:font-header prose-headings:font-bold prose-headings:tracking-tight
                   prose-a:text-primary prose-a:no-underline hover:prose-a:underline
                   prose-img:rounded-3xl prose-img:shadow-2xl prose-pre:bg-base-200 prose-pre:text-base-content"
@@ -41,15 +41,15 @@
       </div>
 
       <!-- Footer Buttons -->
-      <footer class="grid grid-cols-1 sm:grid-cols-2 gap-4 pb-20">
-        <router-link to="/home" class="btn btn-ghost bg-base-200/50 rounded-2xl normal-case h-16 group">
+      <footer class="grid grid-cols-1 sm:grid-cols-2 gap-3 pb-12">
+        <router-link to="/home" class="btn btn-ghost bg-base-200/50 rounded-2xl normal-case h-12 group">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 group-hover:-translate-x-1 transition-transform"
             fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
           </svg>
           Back to Home
         </router-link>
-        <router-link to="/archives" class="btn btn-primary rounded-2xl normal-case h-16 shadow-lg shadow-primary/10">
+        <router-link to="/archives" class="btn btn-primary rounded-2xl normal-case h-12 shadow-lg shadow-primary/10">
           Browse Archives
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24"
             stroke="currentColor">

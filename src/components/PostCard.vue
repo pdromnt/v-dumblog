@@ -2,8 +2,8 @@
     <div class="group animate-fade-in">
         <article>
             <!-- Post Header -->
-            <header class="mb-6">
-                <div class="flex items-center gap-3 mb-4">
+            <header class="mb-4">
+                <div class="flex items-center gap-3 mb-3">
                     <time v-if="post.timestamp" :datetime="post.timestamp"
                         class="text-xs font-bold uppercase tracking-widest text-primary/60">
                         {{ helperService.parseTimestamp(post.timestamp) }}
@@ -12,7 +12,7 @@
                 </div>
 
                 <h2
-                    class="text-4xl md:text-5xl font-header font-extrabold tracking-tight group-hover:text-primary transition-colors leading-tight mb-4">
+                    class="text-2xl md:text-3xl font-header font-extrabold tracking-tight group-hover:text-primary transition-colors leading-tight mb-3">
                     <router-link :to="'/post/' + post.filename">
                         {{ post.postTitle }}
                     </router-link>
@@ -20,7 +20,7 @@
             </header>
 
             <!-- Preview Content -->
-            <div class="prose prose-lg max-w-none text-base-content/80 line-clamp-4 md:line-clamp-6 mb-8"
+            <div class="prose max-w-none text-base-content/80 line-clamp-3 md:line-clamp-4 mb-5"
                 v-html="renderedContent">
             </div>
 
